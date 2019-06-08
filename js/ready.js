@@ -1,0 +1,4 @@
+
+$(function() {
+	// getting set up
+});
