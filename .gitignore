@@ -1,0 +1,25 @@
+
+# sass
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+# text editor configuration files
+*.sublime-*
+save-commands.json
+
+# backups / text editor junk
+*.bak
+*.swp
+*~
+
+# os junk
+desktop.ini
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
