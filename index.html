@@ -14,7 +14,7 @@
 <div id="background"></div>
 
 <!-- and here are our options -->
-<div id="paper-wrapper"><div id="paper">
+<div class="paper-wrapper" id="selector"><div class="paper">
 
 	<h2>Choose your color comparator:</h2>
 
@@ -42,11 +42,25 @@
 		<span>Simple SHL</span>
 	</label>
 
-	<!-- I really don't know what to call this one -->
-	<label>
-		<input type="radio" name="compare" value="nameThisFunction" />
-		<span>???</span>
-	</label>
+</div></div>
+
+<div class="paper-wrapper" id="description"><div class="paper">
+
+	<div class="compare-description" id="compare-simpleRGB">
+		Compares the Red, Green, and Blue values of a color in order. Equivalent to sorting by hex string.
+	</div>
+
+	<div class="compare-description" id="compare-simpleHSL">
+		Compares the Hue, Saturation, and Lightness of a color in order. Produces a "rainbow", but darker colors are scattered throughout.
+	</div>
+
+	<div class="compare-description" id="compare-simpleSLH">
+		Compares the Saturation, Lightness, and Hue, in that order. Groups pastels, brights, and mid-tones together for a multi-rainbow effect.
+	</div>
+
+	<div class="compare-description" id="compare-simpleSHL">
+		Compares the Saturation, Hue, and Lightness, in that order. Groups pastels, but produces dark bands.
+	</div>
 
 </div></div>
 

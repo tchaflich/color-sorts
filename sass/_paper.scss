@@ -1,33 +1,50 @@
 
 
-div#paper-wrapper {
+div.paper-wrapper {
 
   position: fixed;
-  top: 1em;
-  left: 1em;
-  bottom: 1em;
-  right: 50%;
-  // overflow: auto;
+  padding: 1em;
+  overflow: auto;
 
+  &#selector {
+    top: 0;
+    left: 0;
+    width: 50%;
+  }
+
+  &#description {
+    bottom: 0;
+    right: 0;
+    width: 50%;
+  }
 }
 
-div#paper {
+div.paper {
 
-  position: absolute;
-  top: 0;
-  left: 0;
+  padding: 1em;
 
-  padding: 20px;
+  div.paper-wrapper#selector > & {
+    background-color: #FFFFFFCC;
+    font-size: 1em;
+  }
 
-  background-color: #FFFFFFEE;
+  div.paper-wrapper#description > & {
+    background-color: #FFFFFFCC;
+    font-size: 0.8em;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
 
   $box-shadow: 0 0 4px #222D;
   -moz-box-shadow: $box-shadow;
   -webkit-box-shadow: $box-shadow;
   box-shadow: $box-shadow;
 
-  $border-radius: 4px;
+  text-shadow:
+    0 0 1px #FFF8,
+    0 0 3px #FFFF;
 
+  $border-radius: 4px;
   -moz-border-radius: $border-radius;
   -webkit-border-radius: $border-radius;
   border-radius: $border-radius;

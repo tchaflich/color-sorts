@@ -1,6 +1,6 @@
 
 $(function() {
-	// getting set up
+	// generate the colors
 
 	var r;
 	var g;
@@ -31,20 +31,36 @@ $(function() {
 		}
 	}
 
+	// put them in their spots
+
 	function assignColors() {
 		const selected = $('input[name="compare"][type="radio"]:checked').val();
 
 		colors.sort(Compare[selected]);
 		displays.forEach(function(ele, index) {
 			ele.css({
-				// 'color': colors[index].getHexString(),
 				'background-color': colors[index].getHexString(),
 			});
 		});
-	}
+	};
 
 	assignColors();
 	$('input:radio').change(assignColors);
+
+	// show/hide the descriptions
+
+	function adjustDescriptions() {
+		const selected = $('input[name="compare"][type="radio"]:checked').val();
+		$('div.compare-description').each(function() {
+			if ($(this).attr('id') === 'compare-' + selected) {
+				$(this).css({'display': 'block'});
+			} else {
+				$(this).css({'display': 'none'});
+			}
+		});
+	};
+	adjustDescriptions();
+	$('input:radio').change(adjustDescriptions);
 
 	// おわり だ よ!
 });
