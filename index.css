@@ -10,18 +10,71 @@ body {
   margin: 0;
 }
 
-hr {
+html, body, #background {
+  height: 100%;
+  font-family: "Raleway", sans-serif;
+}
+
+div#paper-wrapper {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  bottom: 1em;
+  right: 50%;
+}
+
+div#paper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  background-color: #FFFFFFEE;
+  -moz-box-shadow: 0 0 4px #222D;
+  -webkit-box-shadow: 0 0 4px #222D;
+  box-shadow: 0 0 4px #222D;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+div.magic {
   width: 100%;
-  height: 1px;
+  height: 1.5625%;
+  content: " ";
   border: none;
   text-align: center;
   margin: 0 auto;
   padding: 0;
-}
-hr.magic {
-  color: transparent;
   background-color: transparent;
-  transition: all 0.3 ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type=radio] {
+  vertical-align: middle;
+  line-height: 1.2em;
+  margin: 0;
+  padding: 0;
+}
+
+label {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.4em;
+}
+label > span {
+  vertical-align: middle;
+  line-height: 1.2em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: 1.8em;
+  line-height: 1.8em;
+  font-weight: 400;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -1,0 +1,20 @@
+
+
+div.magic {
+
+	width: 100%;
+	height: percentage(1 / 64); // 64 colors
+	content: " ";
+
+	border: none;
+	text-align: center;
+	margin: 0 auto;
+	padding: 0;
+
+	// these are replaced later in javascript
+	// color: transparent;
+	background-color: transparent;
+
+	// ooooh, aaaaah
+	transition: all 0.3s ease-in-out;
+}

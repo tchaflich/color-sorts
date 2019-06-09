@@ -4,6 +4,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title>🌈 color 🌈</title>
 	<link rel="stylesheet" type="text/css" href="index.css" />
+	<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!-- yep, it's jquery! -->
 	<script type="text/javascript" src="min.js"></script>
 </head>
@@ -13,13 +14,41 @@
 <div id="background"></div>
 
 <!-- and here are our options -->
-<div id="paper">
-<!-- zzz -->
-</div>
+<div id="paper-wrapper"><div id="paper">
+
+	<h2>Choose your color comparator:</h2>
+
+	<!-- Simple RGB Sort -->
+	<label>
+		<input type="radio" name="compare" value="simpleRGB" checked />
+		<span>Simple RGB</span>
+	</label>
+
+	<!-- Simple HSL Sort -->
+	<label>
+		<input type="radio" name="compare" value="simpleHSL" />
+		<span>Simple HSL</span>
+	</label>
+
+	<!-- HSL, but a different priority -->
+	<label>
+		<input type="radio" name="compare" value="simpleSLH" />
+		<span>Simple SLH</span>
+	</label>
+
+	<!-- HSL, but a MORE different priority -->
+	<label>
+		<input type="radio" name="compare" value="simpleSHL" />
+		<span>Simple SHL</span>
+	</label>
+
+	<!-- I really don't know what to call this one -->
+	<label>
+		<input type="radio" name="compare" value="nameThisFunction" />
+		<span>???</span>
+	</label>
+
+</div></div>
 
 </body>
 </html>
-
-
-
-

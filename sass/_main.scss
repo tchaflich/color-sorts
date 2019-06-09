@@ -11,3 +11,8 @@ html {
 body {
   margin: 0;
 }
+
+html, body, #background {
+  height: 100%;
+  font-family: 'Raleway', sans-serif;
+}
