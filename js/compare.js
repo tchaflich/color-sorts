@@ -23,6 +23,14 @@ class Compare {
     return 0;
   }
 
+  static getRGBDistanceBetween(a, b) {
+    return Math.sqrt(
+      Math.pow(a.getRed() - b.getRed(), 2) +
+      Math.pow(a.getGreen() - b.getGreen(), 2) +
+      Math.pow(a.getBlue() - b.getBlue(), 2)
+    );
+  }
+
   /**
    * Sort by red, green, and blue values
    * The most basic of all possible sorting methods
@@ -107,7 +115,7 @@ class Compare {
     if (result) {
       return result;
     }
-    
+
     result = Compare.property(a.getHue(), b.getHue());
     if (result) {
       return result;
@@ -121,24 +129,67 @@ class Compare {
     return 0;
   }
 
-  static nameThisFunction(a, b) {
-    var aHue = a.getHue();
-    var bHue = b.getHue();
+  static simpleLinear(a, b) {
+    var result;
 
-    if (aHue !== bHue) {
-      return aHue - bHue;
+    var aDistance = Math.sqrt(
+      Math.pow(a.getRed(), 2) +
+      Math.pow(a.getGreen(), 2) +
+      Math.pow(a.getBlue(), 2)
+    );
+
+    var bDistance = Math.sqrt(
+      Math.pow(b.getRed(), 2) +
+      Math.pow(b.getGreen(), 2) +
+      Math.pow(b.getBlue(), 2)
+    );
+
+    result = Compare.property(aDistance, bDistance);
+    if (result) {
+      return result;
     }
 
-    var aSaturation = a.getSaturation();
-    var bSaturation = b.getSaturation();
-    var aLightness = a.getLightness();
-    var bLightness = b.getLightness();
+    return 0; // good chance this returns 0!
+  }
 
-    var aBrightness = a.getBrightness();
-    var bBrightness = b.getBrightness();
+  static hueStep(a, b) {
+    var result;
 
-    if (aBrightness !== bBrightness) {
-      return aBrightness - bBrightness;
+    result = Compare.property(a.getHue(), b.getHue());
+    if (result) {
+      return result;
+    }
+
+    const origin = new Color({'red': 0, 'blue': 0, 'green': 0});
+    result = Compare.property(
+      Compare.getRGBDistanceBetween(a, origin),
+      Compare.getRGBDistanceBetween(b, origin)
+    );
+    if (result) {
+      return result;
+    }
+
+    return 0;
+  }
+
+  static hueBucketBrightness(a, b) {
+    var result;
+
+    // keep this divisible into 360 or it'll look weird
+    const hueBuckets = 6;
+
+    result = Compare.property(
+      Math.floor(a.getHue() * hueBuckets / 360),
+      Math.floor(b.getHue() * hueBuckets / 360)
+    );
+
+    if (result) {
+      return result;
+    }
+
+    result = Compare.property(a.getBrightness(), b.getBrightness());
+    if (result) {
+      return result;
     }
 
     return 0;

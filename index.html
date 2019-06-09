@@ -4,7 +4,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title>🌈 color 🌈</title>
 	<link rel="stylesheet" type="text/css" href="index.css" />
-	<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet"> <!-- mmm, delicious fonts -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> <!-- yep, it's jquery! -->
 	<script type="text/javascript" src="min.js"></script>
 </head>
@@ -30,16 +30,32 @@
 		<span>Simple HSL</span>
 	</label>
 
-	<!-- HSL, but a different priority -->
+	<!-- Like HSL, but a different priority -->
 	<label>
 		<input type="radio" name="compare" value="simpleSLH" />
 		<span>Simple SLH</span>
 	</label>
 
-	<!-- HSL, but a MORE different priority -->
+	<!-- Like HSL, but a MORE different priority -->
 	<label>
 		<input type="radio" name="compare" value="simpleSHL" />
 		<span>Simple SHL</span>
+	</label>
+
+	<!-- Very simply, linear distance from #000 -->
+	<label>
+		<input type="radio" name="compare" value="simpleLinear" />
+		<span>Simple linear distance from origin</span>
+	</label>
+
+	<label>
+		<input type="radio" name="compare" value="hueStep" />
+		<span>Hue & stepped linear</span>
+	</label>
+
+	<label>
+		<input type="radio" name="compare" value="hueBucketBrightness" />
+		<span>Hue bucket & brightness</span>
 	</label>
 
 </div></div>
@@ -60,6 +76,19 @@
 
 	<div class="compare-description" id="compare-simpleSHL">
 		Compares the Saturation, Hue, and Lightness, in that order. Groups pastels, but produces dark bands.
+	</div>
+
+	<div class="compare-description" id="compare-simpleLinear">
+		Computes the distance from RGB cube origin (#000), and returns the simple comparison. Can return wildly different results depending on your data set.
+	</div>
+
+	<div class="compare-description" id="compare-hueStep">
+		Much like any other hue sort, this produces a single rainbow. It uses the linear step function to compare within its hue bands.
+	</div>
+
+	<div class="compare-description" id="compare-hueBucketBrightness">
+		Groups colors by hue, then sorts each group by brightness. This avoids the issue of colors looking as if they're in the wrong place due to saturation or lightness issues, but the hue breakpoints have banding built-in.
+		Additionally, whether or not the breakpoints actually break up different "colors" can be dependent on your specific eyesight and color palette.
 	</div>
 
 </div></div>
